@@ -7,7 +7,7 @@ public class myGitTest {
    
 		System.out.println("Programm angelegt 2");
 		
-		
+		 
 	}
 
 }
