@@ -53,12 +53,12 @@ public myXmlUtil(String rootName, String XMLFileName) {
 	 
 
 
-	
-	/**
-	 * 
-	 * 
-	 * 
-	 */
+   
+   /**
+    * Add a new value to XML
+    * @param title XML Tag
+    * @param value new value
+    */
 	public void writeXML(String title,String value){
 		root.addContent(new Element(title).addContent(value));
 	}

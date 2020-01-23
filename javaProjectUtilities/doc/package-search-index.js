@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"de.gallas_it.utilities","l":"de.gallas_it.baseutilities"}]

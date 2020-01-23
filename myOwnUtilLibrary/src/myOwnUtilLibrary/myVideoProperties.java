@@ -3,7 +3,6 @@ package myOwnUtilLibrary;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -87,31 +86,20 @@ public class myVideoProperties {
 	}
 
 
-
-
 	
 	/**
 	 * 
-	 * @param fileName
-	 * @param title
-	 
-	 * @param genre
-	 * @param plot
-	 * @param remarks
-	 * @param creationDate
-	 * param selected  automatisch auf true
+	 * @param selectEdit selectEdit
+	 * @param fileName fileName
+	 * @param title Title
+	 * @param genre Genre
+	 * @param plot Plot
+	 * @param remarks Remark
+	 * @param creationDate Creation Date
 	 */
-	
 	public myVideoProperties(String selectEdit, String fileName, String title,  String genre, 
 			String plot, String remarks, String creationDate) {
 		super();
-		
-		
-        
-        
-        
-        
-		
 		this.fileName = new SimpleStringProperty(fileName);
 		this.title = new SimpleStringProperty(title);
 		this.genre = new SimpleStringProperty(genre);		
@@ -234,8 +222,10 @@ public class myVideoProperties {
 	
 	
 	/**
-	 * @param Selected the genre to set
+	 * @param select Selected the genre to set
 	 */
+	
+
 	public void setSelectEdit(String select) {
 		this.selectEdit = new SimpleStringProperty(select);
 	}
@@ -309,7 +299,8 @@ public class myVideoProperties {
 
 
 	/**
-	 * @param remarks the remarks to set
+	 * Set the creation date of a file
+	 * @param creationDate The new creation date of the file
 	 */
 	public void setCreationDate(String creationDate) {
 		this.creationDate = new SimpleStringProperty(creationDate);

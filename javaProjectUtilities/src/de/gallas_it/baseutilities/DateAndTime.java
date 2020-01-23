@@ -1,27 +1,51 @@
-package myOwnUtilLibrary;
+package de.gallas_it.baseutilities;
+
+
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.nio.file.attribute.FileTime;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class myDateandTimeUtil {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+
+
+
+/**
+ * Eine Bibliotheks Klasse die verschiedene Methoden enthält um Datum oder Zeit abzufragen oder zu manipulieren
+ * 
+ * 
+ * @author u991712
+ * @version 1.0
+ *
+ */
+public class DateAndTime {
+     
+	
+	private static final Logger logger = LogManager.getLogger(DateAndTime.class);
+	
 	private static String year;
 	private static String month;
 	
-	public myDateandTimeUtil() {
+	
+	/**
+	 * Constructor erzeugt bei nicht statischer Verwendung
+	 */
+	
+	public DateAndTime() {
+		
+		
+		logger.traceEntry("DateAndTime Constructor startet");
+		
 		
 		//Get current date time
 	    LocalDateTime now = LocalDateTime.now();  
@@ -37,7 +61,8 @@ public class myDateandTimeUtil {
 	    DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy");
 	    year = now.format(formatter1);
 	     
-		
+	    logger.traceExit(true);
+
 	}
 	
 	/**
@@ -48,9 +73,14 @@ public class myDateandTimeUtil {
 	
 	public static String getYear() {
 		
+		
+		logger.traceEntry("getYear startet");
+		
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
 	    year = now.format(formatter);
+	    
+	    logger.traceExit(year);
 		return year;
 	}
 
@@ -148,12 +178,6 @@ public static String getMonth(String fileName) throws IOException, ParseExceptio
 	
 }
 
-/**
- * @param dateString: Datum als String in der Form yyyy-mm-dd  
- * @return  Returns year
- * 
- */
-
 
 /**
  * 
@@ -163,7 +187,7 @@ public static String getMonth(String fileName) throws IOException, ParseExceptio
  */
 
 public static String getYearByString(String dateString) {
-	
+ 	
 	 int extensionIndex = dateString.indexOf("-"); 
 	    if (extensionIndex == -1) throw new IllegalArgumentException("Date String not in correct format dd.mm.yyyy: "+ dateString);
 
@@ -249,7 +273,7 @@ public static String convertUTC_timeToLocalTime(String dateString ) {
 	dateString = dateString.replace("UTC ", "");
 	dateString = dateString.replace(" ", "T");
 	
-	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
 
 	
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
@@ -277,3 +301,4 @@ public static String convertUTC_timeToLocalTime(String dateString ) {
 
 	
 }
+

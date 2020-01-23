@@ -11,9 +11,7 @@ public class myMediaInfo {
 	
 		
 		mediaInfo    = new MediaInfo();
-    
-	
-	    int i = mediaInfo.Open(fullFileName);
+        int i = mediaInfo.Open(fullFileName);
    
 	}
 	

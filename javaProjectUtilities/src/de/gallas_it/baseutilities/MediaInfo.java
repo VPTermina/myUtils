@@ -1,4 +1,4 @@
-package myOwnUtilLibrary;
+package de.gallas_it.baseutilities;
 
 
 

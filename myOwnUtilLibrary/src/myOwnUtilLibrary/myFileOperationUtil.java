@@ -157,12 +157,12 @@ public static void doSingleFileCopy(String src,String dest) {
 	
 	
 
-	/**
-	 * 
-	 * Wird verwendet um das array zu füllen welches bei doMultifilecopy and Move verwendet wird! 
-	 * 
-	 */
-	
+/**
+ * Hilfsfunktion Wird verwendet um das array zu füllen welches bei doMultifilecopy and Move verwendet wird! 
+ * @param src Source path
+ * @param src_pattern Pattern to identify the fileslike *.*
+ * @param dest Destination 
+ */
 	public  void addfileForMultifileCopy(String src, String src_pattern,String dest ) {	
 	
         
@@ -255,12 +255,11 @@ public String getAttributes(String folder, String fileName) {
 	
 }
 
+
 /**
- * Liefert die fileCreationtime einer Datei
- * @param
- * @returns
  * 
- * 
+ * @param fullFileName The full path name of the file
+ * @return Returns the fiel creation date
  */
 
 public static String getFileCreationtime(String fullFileName) {
@@ -288,9 +287,9 @@ public static String getFileCreationtime(String fullFileName) {
 }
 
 /**
- * Liefert die fileCreationtime einer Datei
- * @param
- * @returns
+ * Returns the last modify date of a file
+ * @param fullFileName The full filename of the file
+ * @return Returns the last modify of the file
  * 
  * 
  */
@@ -324,11 +323,12 @@ public static String getFileLastModifiedTime(String fullFileName) {
  * If a file is given then copyFiles is called 
  * If a dir is given then copyFilesRecursive is called recursivly 
  * 
- * @param src 
- * @param tar 
- * @throws IOException when: src doesn't exist, tar doesn't exist and  can't be created, 
+ * @param src Source
+ * @param tar Target Dir
+ * @throws IOException when: src doesn't exist, tar doesn't exist and  can't be created,  
  * a dir down the tar path doesn't exist and can't be created, or when copyFiles or 
  * IO operation fail. 
+ *
  */ 
 static public void copyFilesRecursive(File src, File tar) throws IOException { 
 
@@ -372,8 +372,8 @@ static public void copyFilesRecursive(File src, File tar) throws IOException {
 /** 
  * Copy src to tar. 
  * Use only on files (for directory use copyFilesRecursive 
- * @param src 
- * @param tar 
+ * @param src Source file
+ * @param tar  Destination file name
  * @throws IOException When: src or tar are directories, or IO operation throws exception 
  */ 
 static public void copyFiles(File src, File tar) throws IOException { 
@@ -413,7 +413,7 @@ static public void copyFiles(File src, File tar) throws IOException {
 
 /** 
  * Method deleteFilesRecursive. 
- * @param workDir 
+ * @param workDir Working dir
  * @throws IOException when delete fail 
  */ 
 static public void deleteFilesRecursive(File workDir) throws IOException { 
@@ -447,10 +447,12 @@ static public void deleteFilesRecursive(File workDir) throws IOException {
  * If fail than a two step move: 
  * 1. call copyFilesRecursive, if fail than deleteFilesRecursive the tar 
  * 2. call deleteFilesRecursive the src 
- * @param src 
- * @param tar 
- * @throws IOException 
- */ 
+ * @param src source
+ * @param tar target
+ * @throws IOException Could not copy
+ */  
+
+
 static public void move(File src, File tar) throws IOException { 
         if (src.renameTo(tar)) { 
                 return; 
@@ -495,15 +497,12 @@ void printFileInfo(File fil)
    System.out.println("");
 }
 
+
 /**
  * Löschte die File Erweiterung und den Path 
- * @Return Filename ohne Pathe und Ext
- * 
+ * @param s Filename
+ * @return Filename without  path and extension
  */
-
-
-
-
 
 static public String removeFilePathAndExtension(String s) {
 
@@ -527,14 +526,13 @@ static public String removeFilePathAndExtension(String s) {
 }
 
 
+
+
 /**
- * Löschte die File Erweiterung  
- * @Return Filename ohne Pathe und Ext
- * 
+ * Removing file extension
+ * @param s Filename without path as string
+ * @return Filename without path and extension
  */
-
-
-
 static public String removeFileExtension(String s) {
 
     // Remove the extension.
@@ -548,12 +546,13 @@ static public String removeFileExtension(String s) {
 
 
 /**
+ * Run a external programm with parameters
  * 
- * 1. Parameter: Name und Pfad des Programmes
- * 2... n : Parameter
  * 
- * @param parameter
+ * @param parameter 1. Parameter: Name und Pfad des Programmes/ 2... n : Parameter 
  */
+
+
 static public void runExternalProgramm(String[] parameter) {
 try {
 	
@@ -589,11 +588,10 @@ try {
 
  
 
-/**
- * 
- * 
- */
 
+/**
+ *  Show the system properties in console window
+ */
 public void showSystemProperties() {
 	
 	Properties props = System.getProperties();

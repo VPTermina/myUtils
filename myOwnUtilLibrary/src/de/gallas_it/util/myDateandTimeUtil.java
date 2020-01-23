@@ -1,4 +1,4 @@
-package myOwnUtilLibrary;
+package de.gallas_it.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,12 +16,12 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class myDateandTimeUtil {
+public class DateTimeUtil {
 
 	private static String year;
 	private static String month;
 	
-	public myDateandTimeUtil() {
+	public DateTimeUtil() {
 		
 		//Get current date time
 	    LocalDateTime now = LocalDateTime.now();  
